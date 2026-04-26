@@ -1,23 +1,29 @@
 import { Component, OnInit, Renderer2 } from '@angular/core';
 import { HeaderComponent } from './components/header/header.component';
 import { TextInputComponent } from './components/text-input/text-input.component';
-import { TextAnalysisService } from './services/text-analysis.service'; // Import the service
+import { StatsComponent } from './components/stats/stats.component'; 
+import { TextAnalysisService } from './services/text-analysis.service';
 
 @Component({
   selector: 'cc-root',
   standalone: true,
-  imports: [HeaderComponent, TextInputComponent],
+  imports: [HeaderComponent, TextInputComponent, StatsComponent], 
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
-  
   currentText: string = '';
   readingTime: string = 'Approx. reading time: 0 minutes';
+  excludeSpaces: boolean = false;
   
+ 
+  charCount: number = 0;
+  wordCount: number = 0;
+  sentenceCount: number = 0;
+
   constructor(
     private renderer: Renderer2,
-    private analysisService: TextAnalysisService 
+    private analysisService: TextAnalysisService
   ) {}
 
   ngOnInit(): void {
@@ -25,17 +31,22 @@ export class AppComponent implements OnInit {
     this.applyTheme(savedTheme === 'light');
   }
 
-  
   handleTextChange(text: string): void {
     this.currentText = text;
-    const wordCount = this.analysisService.countWords(text);
-    this.readingTime = this.analysisService.getReadingTime(wordCount);
+    this.updateAnalysis();
   }
 
-  
   handleConfigChange(config: { excludeSpaces: boolean, charLimit: number | null }): void {
-   
-    console.log('Config updated:', config);
+    this.excludeSpaces = config.excludeSpaces;
+    
+    this.updateAnalysis();
+  }
+
+  private updateAnalysis(): void {
+    this.charCount = this.analysisService.countCharacters(this.currentText, this.excludeSpaces);
+    this.wordCount = this.analysisService.countWords(this.currentText);
+    this.sentenceCount = this.analysisService.countSentences(this.currentText);
+    this.readingTime = this.analysisService.getReadingTime(this.wordCount);
   }
 
   onThemeChange(isLight: boolean): void {

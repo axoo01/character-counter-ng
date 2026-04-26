@@ -1,0 +1,64 @@
+/* This ensures the <cc-stats> tag doesn't collapse */
+:host {
+  display: block;
+  width: 100%;
+}
+
+/* --- Paste your original CSS below this line --- */
+.stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 4rem;
+}
+
+.card {
+  background: var(--card-bg);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  transition: transform 0.2s;
+  display: flex;
+  justify-content: space-between;       
+  overflow: hidden;                    
+  min-height: 150px;
+  padding-left: 1rem;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+}
+
+.card img {
+    width: 180px;                         
+    height: 100%;                         
+    object-fit: cover;                    
+    object-position: right center;        
+    display: block;
+    margin-left: 3rem;
+}
+
+.count {
+  font-size: 4rem;
+  font-weight: 700;
+  display: block;
+  color: #12131a; 
+}
+
+.purple { background-color: var(--purple); }
+.orange { background-color: var(--yellow); } 
+.yellow { background-color: var(--orange); }
+
+.card p {
+  color: #12131a;
+  font-size: 1.1rem;
+  white-space: nowrap;
+}
+
+.purple, .orange, .yellow {
+    display: flex;
+    align-items: center;
+}
+
+@media (max-width: 640px) {
+  .card { max-height: 50px; }
+}

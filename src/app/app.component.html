@@ -9,4 +9,9 @@
     (configChanged)="handleConfigChange($event)">
   </cc-text-input>
 
-  </main>
+  <cc-stats 
+    [charCount]="charCount" 
+    [wordCount]="wordCount" 
+    [sentenceCount]="sentenceCount">
+  </cc-stats>
+</main>
