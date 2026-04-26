@@ -1,13 +1,14 @@
 import { Component, OnInit, Renderer2 } from '@angular/core';
 import { HeaderComponent } from './components/header/header.component';
 import { TextInputComponent } from './components/text-input/text-input.component';
-import { StatsComponent } from './components/stats/stats.component'; 
+import { StatsComponent } from './components/stats/stats.component';
+import { DensityComponent } from './components/density/density.component'; // New Import
 import { TextAnalysisService } from './services/text-analysis.service';
 
 @Component({
   selector: 'cc-root',
   standalone: true,
-  imports: [HeaderComponent, TextInputComponent, StatsComponent], 
+  imports: [HeaderComponent, TextInputComponent, StatsComponent, DensityComponent], // Added Density
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
@@ -16,10 +17,11 @@ export class AppComponent implements OnInit {
   readingTime: string = 'Approx. reading time: 0 minutes';
   excludeSpaces: boolean = false;
   
- 
+  // Stats & Density State
   charCount: number = 0;
   wordCount: number = 0;
   sentenceCount: number = 0;
+  densityData: any[] = [];
 
   constructor(
     private renderer: Renderer2,
@@ -38,7 +40,6 @@ export class AppComponent implements OnInit {
 
   handleConfigChange(config: { excludeSpaces: boolean, charLimit: number | null }): void {
     this.excludeSpaces = config.excludeSpaces;
-    
     this.updateAnalysis();
   }
 
@@ -47,6 +48,7 @@ export class AppComponent implements OnInit {
     this.wordCount = this.analysisService.countWords(this.currentText);
     this.sentenceCount = this.analysisService.countSentences(this.currentText);
     this.readingTime = this.analysisService.getReadingTime(this.wordCount);
+    this.densityData = this.analysisService.getLetterDensity(this.currentText);
   }
 
   onThemeChange(isLight: boolean): void {

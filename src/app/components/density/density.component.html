@@ -1,0 +1,30 @@
+<section class="letter-density">
+  <h2>Letter Density</h2>
+  
+  <div class="density-list">
+    <p *ngIf="densityData.length === 0" class="density-empty">
+      No characters found. Start typing to see letter density.
+    </p>
+
+    <div *ngFor="let item of visibleItems" class="density-item">
+      <span class="letter">{{ item.letter }}</span>
+      <div class="bar-container">
+        <div class="bar" [style.width.%]="item.percentage"></div>
+      </div>
+      <span class="percent">{{ item.count }} ({{ item.percentage | number:'1.2-2' }}%)</span>
+    </div>
+  </div>
+
+  <button 
+    *ngIf="densityData.length > PREVIEW_LIMIT"
+    (click)="toggleShowAll()"
+    class="see-more" 
+    [class.is-expanded]="showAll"
+    type="button"
+  >
+    {{ showAll ? 'See less' : 'See more' }}
+    <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M2 4L6 8L10 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  </button>
+</section>
