@@ -10,7 +10,7 @@
   --border: #c7c8d1;
   --radius: 16px;
   --shadow: 0 10px 25px rgba(18, 19, 26, 0.08);
-  --background-image: url('../public/assets/images/bg-light-theme.png');
+  --background-image: url('/assets/images/bg-light-theme.png');
 }
 
 
@@ -21,13 +21,13 @@
   --card-bg: #21222c;
   --border: #2f2f3a;
   --shadow: 0 10px 25px rgba(0, 0, 0, 0.35);
-  --background-image: url('../public/assets/images/bg-dark-theme.png');
+  --background-image: url('/assets/images/bg-dark-theme.png');
 }
 
 
 @font-face {
   font-family: 'DM Sans';
-  src: url('../public/assets/fonts/DM_Sans/DMSans-VariableFont_opsz,wght.ttf') format('truetype');
+  src: url('/assets/fonts/DM_Sans/DMSans-VariableFont_opsz,wght.ttf') format('truetype');
   font-weight: 100 900;
   font-style: normal;
   font-display: swap;
