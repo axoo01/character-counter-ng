@@ -1,0 +1,41 @@
+/* header.component.scss */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 0 4rem; // Matching your original padding
+}
+
+.logo {
+  height: 40px;
+  transition: opacity 0.2s ease;
+}
+
+.theme-toggle {
+  position: relative;
+  cursor: pointer;
+}
+
+#theme-toggle {
+  display: none; // Keep the checkbox hidden
+}
+
+.toggle-icon {
+  width: 32px;
+  height: 32px;
+  transition: transform 0.7s, opacity 0.7s ease;
+}
+
+/* Mobile adjustments from your original CSS */
+@media (max-width: 640px) {
+  header {
+    padding: 0 0 2rem;
+  }
+  .logo {
+    height: 35px;
+  }
+  .toggle-icon {
+    width: 24px;
+    height: 24px;
+  }
+}

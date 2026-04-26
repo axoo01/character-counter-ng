@@ -1,0 +1,22 @@
+<header class="container">
+  <img 
+    [src]="isLightMode ? '/assets/images/logo-light-theme.svg' : '/assets/images/logo-dark-theme.svg'" 
+    alt="character counter" 
+    class="logo"
+  />
+
+  <label class="theme-toggle" for="theme-toggle" aria-label="Toggle theme">
+    <input 
+      type="checkbox" 
+      id="theme-toggle" 
+      [(ngModel)]="isLightMode" 
+      (change)="onToggleChange()"
+    />
+
+    <img 
+      [src]="isLightMode ? '/assets/images/icon-moon.svg' : '/assets/images/icon-sun.svg'" 
+      [alt]="isLightMode ? 'Switch to dark mode' : 'Switch to light mode'" 
+      class="toggle-icon" 
+    />
+  </label>
+</header>
