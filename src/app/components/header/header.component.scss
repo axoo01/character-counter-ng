@@ -1,41 +1,39 @@
-/* header.component.scss */
 header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 0 4rem; // Matching your original padding
+  padding: 0 0 4rem;
 }
 
 .logo {
   height: 40px;
-  transition: opacity 0.2s ease;
 }
 
 .theme-toggle {
   position: relative;
   cursor: pointer;
+  display: flex;
+  align-items: center;
 }
 
 #theme-toggle {
-  display: none; // Keep the checkbox hidden
+  display: none;
 }
 
 .toggle-icon {
   width: 32px;
   height: 32px;
-  transition: transform 0.7s, opacity 0.7s ease;
+  
+  transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* Mobile adjustments from your original CSS */
+
+.rotate-active {
+  transform: rotate(360deg);
+}
+
 @media (max-width: 640px) {
-  header {
-    padding: 0 0 2rem;
-  }
-  .logo {
-    height: 35px;
-  }
-  .toggle-icon {
-    width: 24px;
-    height: 24px;
-  }
+  header { padding: 0 0 2rem; }
+  .logo { height: 35px; }
+  .toggle-icon { width: 24px; height: 24px; }
 }

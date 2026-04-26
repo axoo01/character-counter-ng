@@ -49,11 +49,17 @@ body {
   background-attachment: fixed;
   color: var(--text);
   min-height: 100vh;
-  padding: 2.5rem 1rem;
+  padding: 3rem 2rem;
   transition: background-color 0.5s ease, color 0.5s ease;
 }
 
 .container {
   max-width: 1080px;
   margin: 0 auto;
+}
+
+@media (max-width: 640px) {
+  body {
+    padding: 2rem 1rem;
+  }
 }

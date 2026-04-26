@@ -8,7 +8,8 @@ textarea {
   background: var(--card-bg);
   color: var(--text);
   font-size: 1.3rem;
-  resize: vertical;
+  resize: none;
+  overflow-y: auto;
   margin-bottom: 1.5rem;
   transition: border-color 0.2s, box-shadow 0.2s;
 }

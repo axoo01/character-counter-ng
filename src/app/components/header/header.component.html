@@ -17,6 +17,7 @@
       [src]="isLightMode ? '/assets/images/icon-moon.svg' : '/assets/images/icon-sun.svg'" 
       [alt]="isLightMode ? 'Switch to dark mode' : 'Switch to light mode'" 
       class="toggle-icon" 
+      [class.rotate-active]="isLightMode"
     />
   </label>
 </header>
