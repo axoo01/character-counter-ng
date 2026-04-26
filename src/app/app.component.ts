@@ -1,19 +1,41 @@
 import { Component, OnInit, Renderer2 } from '@angular/core';
 import { HeaderComponent } from './components/header/header.component';
+import { TextInputComponent } from './components/text-input/text-input.component';
+import { TextAnalysisService } from './services/text-analysis.service'; // Import the service
 
 @Component({
   selector: 'cc-root',
   standalone: true,
-  imports: [HeaderComponent],
+  imports: [HeaderComponent, TextInputComponent],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
-  constructor(private renderer: Renderer2) {}
+  
+  currentText: string = '';
+  readingTime: string = 'Approx. reading time: 0 minutes';
+  
+  constructor(
+    private renderer: Renderer2,
+    private analysisService: TextAnalysisService 
+  ) {}
 
   ngOnInit(): void {
     const savedTheme = localStorage.getItem('character-counter-theme') || 'dark';
     this.applyTheme(savedTheme === 'light');
+  }
+
+  
+  handleTextChange(text: string): void {
+    this.currentText = text;
+    const wordCount = this.analysisService.countWords(text);
+    this.readingTime = this.analysisService.getReadingTime(wordCount);
+  }
+
+  
+  handleConfigChange(config: { excludeSpaces: boolean, charLimit: number | null }): void {
+   
+    console.log('Config updated:', config);
   }
 
   onThemeChange(isLight: boolean): void {
@@ -21,14 +43,11 @@ export class AppComponent implements OnInit {
   }
 
   private applyTheme(isLight: boolean): void {
-    const theme = isLight ? 'light' : 'dark';
-    
     if (isLight) {
       this.renderer.removeClass(document.body, 'dark');
     } else {
       this.renderer.addClass(document.body, 'dark');
     }
-    
-    localStorage.setItem('character-counter-theme', theme);
+    localStorage.setItem('character-counter-theme', isLight ? 'light' : 'dark');
   }
 }

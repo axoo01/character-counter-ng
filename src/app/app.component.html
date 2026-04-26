@@ -2,4 +2,11 @@
 
 <main class="container">
   <h1>Analyze your text<br>in real-time.</h1>
+  
+  <cc-text-input 
+    [readingTime]="readingTime"
+    (textChanged)="handleTextChange($event)"
+    (configChanged)="handleConfigChange($event)">
+  </cc-text-input>
+
   </main>

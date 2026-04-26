@@ -1,0 +1,82 @@
+textarea {
+  font-family: 'DM Sans', sans-serif;  
+  width: 100%;
+  min-height: 180px;
+  padding: 1.5rem;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  background: var(--card-bg);
+  color: var(--text);
+  font-size: 1.3rem;
+  resize: vertical;
+  margin-bottom: 1.5rem;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+textarea:focus {
+  outline: none;
+  border-color: var(--purple);
+  box-shadow: 0 0 0 3px rgba(211, 160, 250, 0.2);
+}
+
+textarea.limit-exceeded {
+  border-color: var(--orange);
+  box-shadow: 0 0 0 3px rgba(254, 129, 89, 0.2);
+}
+
+.options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem 2rem;
+  justify-content: space-between;
+  margin-bottom: 2.5rem;
+  font-size: 1rem;
+  color: var(--text);
+  font-weight: 200;
+}
+
+.checkboxes {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+/* Custom Checkbox CSS from your project */
+input[type="checkbox"] {
+  appearance: none; 
+  -webkit-appearance: none;              
+  width: 17px;                    
+  height: 17px;
+  border: 1px solid var(--text); 
+  border-radius: 4px;            
+  background: none;       
+  cursor: pointer;
+  vertical-align: middle;
+}
+
+input[type="checkbox"]:checked {
+  border-color: var(--purple);
+  background: var(--purple);
+  background-image: url('/assets/images/icon-check.svg');
+  background-repeat: no-repeat;
+  background-position: center;     
+}
+
+.limit-input {
+  width: 110px;
+  padding: 0.55rem 0.75rem;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: var(--card-bg);
+  color: var(--text);
+  font: inherit;
+}
+
+@media (max-width: 640px) {
+  .checkboxes {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+}

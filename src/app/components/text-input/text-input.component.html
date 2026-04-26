@@ -1,1 +1,33 @@
-<p>text-input works!</p>
+<textarea 
+  [(ngModel)]="text"
+  (input)="onInputChange()"
+  placeholder="Start typing here… (or paste your text)"
+  aria-label="Enter text to analyze"
+  [class.limit-exceeded]="setLimit && charLimit && text.length > charLimit"
+></textarea>
+
+<div class="options">
+  <div class="checkboxes">
+    <label>
+      <input type="checkbox" [(ngModel)]="excludeSpaces" (change)="emitConfig()" /> 
+      Exclude Spaces
+    </label>
+
+    <label>
+      <input type="checkbox" [(ngModel)]="setLimit" (change)="emitConfig()" /> 
+      Set Character Limit
+    </label>
+
+    <input
+      *ngIf="setLimit"
+      type="number"
+      [(ngModel)]="charLimit"
+      (input)="emitConfig()"
+      class="limit-input is-visible"
+      min="1"
+      placeholder="Enter limit"
+    />
+  </div>
+  
+  <span class="reading-time">Approx. reading time: {{ readingTime }}</span>
+</div>
