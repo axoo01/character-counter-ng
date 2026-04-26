@@ -1,6 +1,6 @@
 # Character Counter App
 
-A real-time text analysis tool built with **Angular 18**. This application helps users analyze their written content with precision, providing instant metrics on character counts, word counts, sentence counts, and letter density.
+A real-time text analysis web app built with **Angular 18**. This application helps users analyze their written content with precision, providing instant metrics on character counts, word counts, sentence counts, and letter density.
 
 Originally developed as a vanilla JavaScript lab, this version has been completely re-architected into a modular Angular application to demonstrate best practices in component-based development.
 
