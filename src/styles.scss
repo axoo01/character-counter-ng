@@ -1,1 +1,59 @@
-/* You can add global styles to this file, and also import other style files */
+
+:root {
+  --bg: #f2f3f7;
+  --text: #12131a;
+  --text-muted: #404254;
+  --card-bg: #ffffff;
+  --purple: #d3a0fa;
+  --orange: #fe8159;
+  --yellow: #ff9f00;
+  --border: #c7c8d1;
+  --radius: 16px;
+  --shadow: 0 10px 25px rgba(18, 19, 26, 0.08);
+  --background-image: url('../public/assets/images/bg-light-theme.png');
+}
+
+
+.dark {
+  --bg: #12131a;
+  --text: #e4e4ef;
+  --text-muted: #a0a0b0;
+  --card-bg: #21222c;
+  --border: #2f2f3a;
+  --shadow: 0 10px 25px rgba(0, 0, 0, 0.35);
+  --background-image: url('../public/assets/images/bg-dark-theme.png');
+}
+
+
+@font-face {
+  font-family: 'DM Sans';
+  src: url('../public/assets/fonts/DM_Sans/DMSans-VariableFont_opsz,wght.ttf') format('truetype');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background-color: var(--bg);
+  background-image: var(--background-image);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  color: var(--text);
+  min-height: 100vh;
+  padding: 2.5rem 1rem;
+  transition: background-color 0.5s ease, color 0.5s ease;
+}
+
+.container {
+  max-width: 1080px;
+  margin: 0 auto;
+}
