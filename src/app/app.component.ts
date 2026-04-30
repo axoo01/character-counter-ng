@@ -2,13 +2,13 @@ import { Component, OnInit, Renderer2 } from '@angular/core';
 import { HeaderComponent } from './components/header/header.component';
 import { TextInputComponent } from './components/text-input/text-input.component';
 import { StatsComponent } from './components/stats/stats.component';
-import { DensityComponent } from './components/density/density.component'; // New Import
+import { DensityComponent } from './components/density/density.component';
 import { TextAnalysisService } from './services/text-analysis.service';
 
 @Component({
   selector: 'cc-root',
   standalone: true,
-  imports: [HeaderComponent, TextInputComponent, StatsComponent, DensityComponent], // Added Density
+  imports: [HeaderComponent, TextInputComponent, StatsComponent, DensityComponent],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
@@ -17,7 +17,6 @@ export class AppComponent implements OnInit {
   readingTime: string = 'Approx. reading time: 0 minutes';
   excludeSpaces: boolean = false;
   
-  // Stats & Density State
   charCount: number = 0;
   wordCount: number = 0;
   sentenceCount: number = 0;

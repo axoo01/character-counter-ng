@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Output, Input } from '@angular/core'; // Add Input here
+import { Component, EventEmitter, Output, Input, output } from '@angular/core'; // Add Input here
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
